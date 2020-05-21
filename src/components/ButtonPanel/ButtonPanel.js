@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'react-uuid';
 import Button from '../Button/Button';
 
 const buttonsArr = [
@@ -11,9 +12,9 @@ const buttonsArr = [
 
 
 const ButtonPanel = () => {
-  const renderButtons = buttonsArr.map((group, index) => (
-    <div key={index}>
-      {group.map((button, index) => <Button key={index} name={button} />)}
+  const renderButtons = buttonsArr.map(group => (
+    <div key={uuid()}>
+      {group.map(button => <Button key={uuid()} name={button} />)}
     </div>
   ));
 
