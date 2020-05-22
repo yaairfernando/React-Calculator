@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'react-uuid';
-import Button from '../Button/Button';
+import Button from './Button';
 
 const buttonsArr = [
   ['AC', '+/-', '%', '/'],
