@@ -2,16 +2,22 @@ import operate from './operate';
 
 const calculate = (calcualtor, buttonName) => {
   const res = { ...calcualtor };
-  if (buttonName === '+' || buttonName === '-' || buttonName === '*' || buttonName === '/' || buttonName === '%') {
-    res.total = operate(calcualtor.total, calcualtor.next, calcualtor.operation);
+  const { total, next, operation } = calcualtor;
+  if (buttonName === '+' || buttonName === '-' || buttonName === '*' || buttonName === '%') {
+    res.total = operate(total, next, operation);
     res.next = '0';
-  } else if (buttonName === 'AC') {
+  } else if (buttonName === '/') {
+    if (next > '0') {
+      res.total = operate(total, next, operation);
+      res.next = '0';
+    }
+  } else if (buttonName === 'AC' || (buttonName === '/' && next <= '0')) {
     res.total = '0';
     res.next = '0';
     res.operation = null;
   } else {
-    res.total = operate(calcualtor.total, -1, '*');
-    res.next = operate(calcualtor.next, -1, '*');
+    res.total = operate(total, -1, '*');
+    res.next = operate(next, -1, '*');
   }
   return res;
 };
