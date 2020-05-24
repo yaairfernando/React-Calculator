@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ButtonPanel from './ButtonPanel';
 import Display from './Display';
-
+import calculate from '../logic/calculate'; // eslint-disable-line no-unused-vars
 
 const AppContainer = styled.div`
 display: flex;
