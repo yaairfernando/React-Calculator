@@ -21,8 +21,17 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ name, color, wide }) => (
-  <StyledButton type="button" color={color} wide={wide}>{name}</StyledButton>
+const Button = ({
+  name, color, wide, onClick,
+}) => (
+  <StyledButton
+    type="button"
+    color={color}
+    wide={wide}
+    onClick={() => onClick(name)}
+  >
+    {name}
+  </StyledButton>
 );
 
 Button.defaultProps = {
@@ -34,6 +43,7 @@ Button.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
   wide: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;
