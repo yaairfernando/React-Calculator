@@ -1,24 +1,22 @@
 import Big from 'big.js/big';
 
 const operate = (numberOne, numberTwo, operation) => {
-  const x = new Big(numberOne);
   let result;
-
   switch (operation) {
     case '-':
-      result = x.minus(numberTwo);
+      result = Big(numberOne).minus(numberTwo);
       break;
     case '+':
-      result = x.plus(numberTwo);
+      result = Big(numberOne).plus(numberTwo);
       break;
-    case '*':
-      result = x.times(numberTwo);
+    case 'x':
+      result = Big(numberOne).times(numberTwo);
       break;
     case '/':
-      result = x.div(numberTwo);
+      result = Big(numberOne).div(numberTwo);
       break;
     default:
-      result = x.mod(numberTwo);
+      result = Big(numberOne).div(numberTwo);
       break;
   }
   return result.toString();

@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 const ButtonPanelContainer = styled.div`
@@ -22,16 +23,16 @@ const buttonsArr = [
 ];
 
 
-const ButtonPanel = () => {
+const ButtonPanel = ({ onClick }) => {
   const renderButtons = buttonsArr.map(group => (
     <div key={uuid()} className="button-group">
       {group.map(button => {
         if (button === '-' || button === '+' || button === '/' || button === 'x' || button === '=') {
-          return <Button key={uuid()} name={button} color="#F4913E" />;
+          return <Button key={uuid()} name={button} color="#F4913E" onClick={onClick} />;
         } if (button === '0') {
-          return <Button key={uuid()} name={button} wide />;
+          return <Button key={uuid()} name={button} wide onClick={onClick} />;
         }
-        return <Button key={uuid()} name={button} />;
+        return <Button key={uuid()} name={button} onClick={onClick} />;
       })}
     </div>
   ));
@@ -41,6 +42,10 @@ const ButtonPanel = () => {
       {renderButtons}
     </ButtonPanelContainer>
   );
+};
+
+ButtonPanel.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ButtonPanel;

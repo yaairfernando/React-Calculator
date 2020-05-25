@@ -39,8 +39,7 @@
 
 ## About The Project
 
-<!-- ![Screenshot Image](public/logoRepo.PNG) 
-![Screenshot Image](public/logoRepo3.PNG)  -->
+![Screenshot Image](public/calculator.png) 
 
 ### Built With
 The project was developed using the following technologies:
